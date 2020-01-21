@@ -1,5 +1,6 @@
 ## Famicon
 Fontawesome svg icon component for mithril
+https://kliksob.github.io/famicon/
 
 ## How to use
 
