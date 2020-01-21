@@ -3,7 +3,7 @@ Fontawesome svg icon component for mithril
 
 ## How to use
 
-```sh
+```bash
 npm install famicon
 ```
 
@@ -34,5 +34,16 @@ const { faIconName } = require("famicon/dist/solid");
 ```js
 const faIconName = require("famicon/dist/solid/faIconName");
 ```
+### Build example docs
 
+```sh
+npm install -g parcel-bundler
+npm run watch-docs
+npm run build-docs
+```
+### Development
+Make sure your os is linux. bechause we use shelljs
 
+```sh
+node build.js
+```
