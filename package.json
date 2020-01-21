@@ -9,7 +9,7 @@
   },
   "keywords": ["mithril", "SVG", "Icons", "Fontawesome"],
   "author": "Aris Riswanto",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "mithril": "^2.0.4"
   },
