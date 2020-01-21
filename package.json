@@ -1,0 +1,22 @@
+{
+  "name": "famicon",
+  "version": "0.1.0",
+  "description": "FontAwesome 5 for mithril",
+  "main": "index.js",
+  "scripts": {
+    "watch-docs": "rm -rf docs/dist && parcel docs/index.html --out-dir docs/dist --no-source-maps --no-autoinstall",
+    "build-docs": "rm -rf docs/dist && parcel build docs/index.html --out-dir docs/dist --no-source-maps --no-autoinstall --experimental-scope-hoisting"
+  },
+  "keywords": ["mithril", "SVG", "Icons", "Fontawesome"],
+  "author": "Aris Riswanto",
+  "license": "ISC",
+  "peerDependencies": {
+    "mithril": "^2.0.4"
+  },
+  "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-regular-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "shelljs": "^0.8.3"
+  }
+}
