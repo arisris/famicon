@@ -43,7 +43,8 @@ npm run watch-docs
 npm run build-docs
 ```
 ### Development
-Make sure your os is linux. bechause we use shelljs
+Clone this repository
+Make sure your os is linux. because we use shelljs
 
 ```sh
 node build.js
