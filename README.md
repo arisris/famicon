@@ -43,9 +43,11 @@ npm run watch-docs
 npm run build-docs
 ```
 ### Development
-Clone this repository
 Make sure your os is linux. because we use shelljs
 
 ```sh
+git clone https://github.com/kliksob/famicon.git
+cd famicon
+npm install
 node build.js
 ```
