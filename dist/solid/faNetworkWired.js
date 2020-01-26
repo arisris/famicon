@@ -1,9 +1,11 @@
-const m = require('mithril');
-const { onlyObject, xmlns } = require('../../utils.js');
+/* Famicon by https://github.com/kliksob */
+var m = require('mithril');
+var util = require('../../utils.js');
 module.exports = {
-  view({ attrs }) {
-    const svgAttrs = Object.assign({xmlns}, onlyObject(attrs.svgAttrs));
-    const pathAttrs = onlyObject(attrs.pathAttrs);  
+  view: function view(vnode) {
+    var attrs = vnode.attrs;
+    var svgAttrs = Object.assign({ xmlns: util.xmlns }, util.onlyObject(attrs.svgAttrs));
+    var pathAttrs = util.onlyObject(attrs.pathAttrs);  
     return m('svg[id=network-wired][viewBox=0 0 640 512]', svgAttrs, m('path[d=M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z]', pathAttrs));
   }
 }

@@ -1,9 +1,11 @@
-const m = require('mithril');
-const { onlyObject, xmlns } = require('../../utils.js');
+/* Famicon by https://github.com/kliksob */
+var m = require('mithril');
+var util = require('../../utils.js');
 module.exports = {
-  view({ attrs }) {
-    const svgAttrs = Object.assign({xmlns}, onlyObject(attrs.svgAttrs));
-    const pathAttrs = onlyObject(attrs.pathAttrs);  
+  view: function view(vnode) {
+    var attrs = vnode.attrs;
+    var svgAttrs = Object.assign({ xmlns: util.xmlns }, util.onlyObject(attrs.svgAttrs));
+    var pathAttrs = util.onlyObject(attrs.pathAttrs);  
     return m('svg[id=elementor][viewBox=0 0 448 512]', svgAttrs, m('path[d=M425.6 32H22.4C10 32 0 42 0 54.4v403.2C0 470 10 480 22.4 480h403.2c12.4 0 22.4-10 22.4-22.4V54.4C448 42 438 32 425.6 32M164.3 355.5h-39.8v-199h39.8v199zm159.3 0H204.1v-39.8h119.5v39.8zm0-79.6H204.1v-39.8h119.5v39.8zm0-79.7H204.1v-39.8h119.5v39.8z]', pathAttrs));
   }
 }

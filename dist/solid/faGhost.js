@@ -1,9 +1,11 @@
-const m = require('mithril');
-const { onlyObject, xmlns } = require('../../utils.js');
+/* Famicon by https://github.com/kliksob */
+var m = require('mithril');
+var util = require('../../utils.js');
 module.exports = {
-  view({ attrs }) {
-    const svgAttrs = Object.assign({xmlns}, onlyObject(attrs.svgAttrs));
-    const pathAttrs = onlyObject(attrs.pathAttrs);  
+  view: function view(vnode) {
+    var attrs = vnode.attrs;
+    var svgAttrs = Object.assign({ xmlns: util.xmlns }, util.onlyObject(attrs.svgAttrs));
+    var pathAttrs = util.onlyObject(attrs.pathAttrs);  
     return m('svg[id=ghost][viewBox=0 0 384 512]', svgAttrs, m('path[d=M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z]', pathAttrs));
   }
 }

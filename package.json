@@ -1,6 +1,6 @@
 {
   "name": "famicon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "FontAwesome 5 for mithril",
   "main": "index.js",
   "scripts": {

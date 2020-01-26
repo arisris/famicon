@@ -2,12 +2,14 @@ const sh = require("shelljs");
 
 function cm(prop) {
   const { icon, iconName } = prop;
-  return `const m = require('"mithril"');
-const { onlyObject, xmlns } = require('"../../utils.js"');
+  return `/* Famicon by https://github.com/kliksob */
+var m = require('"mithril"');
+var util = require('"../../utils.js"');
 module.exports = {
-  view({ attrs }) {
-    const svgAttrs = Object.assign({xmlns}, onlyObject(attrs.svgAttrs));
-    const pathAttrs = onlyObject(attrs.pathAttrs);  
+  view: function view(vnode) {
+    var attrs = vnode.attrs;
+    var svgAttrs = Object.assign({ xmlns: util.xmlns }, util.onlyObject(attrs.svgAttrs));
+    var pathAttrs = util.onlyObject(attrs.pathAttrs);  
     return m('"svg[id=${iconName}][viewBox=0 0 ${icon[0]} ${icon[1]}]"', svgAttrs, m('"path[d=${icon[4]}]"', pathAttrs));
   }
 }`;
@@ -40,6 +42,7 @@ async function build(fa, outDir) {
     await sh.echo("Done build regular..");
     
     await sh.echo("Done....");
+    await sh.echo("Cleaning up...");
   } catch(e) {
     throw e;
     process.exit(1);
