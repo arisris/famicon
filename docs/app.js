@@ -35,9 +35,9 @@ const IconList = {
       m(".modal-header", m("a.btn.btn-clear.float-right[aria-label=close][href=#close]", { onclick: state.modal.toggle(state)}), m(".modal-title.h5", state.modal.title)),
       m(".modal-body", (state.modal.body || "Hiii"))
     ])) : null), m(".columns", Object.keys(list).map(i => {
-      return m(`.col.col-3.p-2.text-center`, {
+      return m(`.col.col-3.p-2.text-center.p-0`, {
         key: i
-      }, m(`a[href=#].card.p-centered.p-2`, {
+      }, m(`a[href=#][data-tooltip=${i}].card.p-centered.p-2.tooltip`, {
         onclick: e => {
           state.modal.toggle(state)(e);
           state.modal.title = i;
@@ -67,7 +67,11 @@ m.mount(el, ${i}Icon})
           height: "32px",
           fill: randomColor()
         }
-      })));
+      })), m("i.text-italic.text-primary", {
+        style: {
+          fontSize: "0.5em"
+        }
+      }, i));
     })));
   }
 }
@@ -93,8 +97,37 @@ const IconPages = {
     const tabCount = t => Object.keys(t).length;
     
     return [
-      m("h3.text-center", "Icon List"),
-      m(".divider"),
+      m(".navbar.px-2.bg-primary", {
+        style: {
+          alignItems: "center",
+          height: "54px"
+        }
+      }, [
+        m(".navbar-section", [
+          m("a[href=https://github.com/kliksob/famicon/blob/master/README.md][target=_blank].text-light", "README")
+        ]),
+        m(".navbar-center", m(".navbar-brand.h4", "Famicon")),
+        m(".navbar-section", [
+          m("a[href=https://npmjs.com/package/famicon][target=_blank].btn.btn-action.btn-primary.mr-2", { style: "border:none" }, m(brands.faNpm, {
+            svgAttrs: {
+              style: {
+                width: "24px",
+                height: "24px",
+                fill: "red"
+              }
+            }
+          })),
+          m("a[href=https://github.com/kliksob/famicon][target=_blank].btn.btn-action.btn-primary", { style: "border:none" }, m(brands.faGithub, {
+            svgAttrs: {
+              style: {
+                width: "24px",
+                height: "24px"
+              }
+            }
+          }))
+        ])
+      ]),
+      //m(".divider"),
       m("ul.tab.tab-block", [
         m("li.tab-item"+tabActive(0), m(`a.badge[data-badge=${tabCount(solid)}]`, {
           onclick: tabSwitch(0)
