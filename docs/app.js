@@ -51,7 +51,7 @@ const IconList = {
             m("pre[data-lang=HTML]", m("code", 
 `// Example code
 const m = require("mithril");
-const ${i} = require("famicon/dist/[tabType]/${i}.js");
+const ${i} = require("famicon/dist/${type}/${i}.js");
 const ${i}Icon = m(${i}, {
   svgAttrs: {},
   pathAtrrs: {},
@@ -79,6 +79,7 @@ m.mount(el, ${i}Icon})
 const IconPages = {
   tab: {
     current: 0,
+    get type() { return ["solid","regular","brands"][this.current] },
     list: [solid,regular,brands],
     s: s => t => e => {
       if (s.tab.list[t]) {
@@ -139,7 +140,7 @@ const IconPages = {
           onclick: tabSwitch(2)
         }, "Brands")),
       ]),
-      m(IconList, { list: tabCurrent })
+      m(IconList, { list: tabCurrent, type: state.tab.type })
     ]
   }
 }
